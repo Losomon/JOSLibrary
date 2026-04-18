@@ -1,23 +1,19 @@
-# Bibliotheca Frontend TODO
+# TODOs for Bibliotheca Library Frontend
 
-## Current Task: Integrate New BibliothecaAuth Design into Login Page
+## Current Progress
+- ✅ Fixed TypeScript CSS import error by adding globals.css.d.ts
 
-✅ **Step 0**: Create TODO.md with plan breakdown  
-✅ **Step 1**: Update frontend/app/(auth)/login/page.tsx with new tabbed design + Supabase auth  
-⭕ **Step 2**: cd frontend && npm run build  
-⭕ **Step 3**: Fix any build errors (linter/CSS/etc.)  
-⭕ **Step 4**: cd frontend && npm run dev  
-⭕ **Step 5**: Test login/register tabs (Supabase auth flow)  
-⭕ **Step 6**: Verify integration with Navbar/middleware redirects  
-✅ **Step 7**: Update TODO.md progress  
+## Next Steps
+1. Test all dashboard pages and features
+2. Add missing error boundaries and loading states
+3. Optimize AI chat performance
+4. Implement responsive improvements for mobile
+5. Add PWA support and offline capabilities
+6. Performance monitoring with Sentry
+7. A/B testing for UI variations
+8. Accessibility audit (WCAG 2.2 AA)
 
-## Previous Tasks (Auth Build Fixed)
-✅ Fix Next.js build errors in auth pages  
-✅ Test dev server  
-
-## Other Tasks
-- Integrate AI chat widget fully
-- Add payment flows (M-Pesa/Paystack)
-- Dashboard enhancements
-- Mobile responsiveness tweaks
+## Bugs
+- [ ] Check for any remaining TypeScript errors
+- [ ] Test dark mode toggle across all pages
 
