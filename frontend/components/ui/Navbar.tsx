@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import {
   BookOpen, Search, ShoppingCart, User, Menu, X,
   LogOut, LayoutDashboard, Library, ChevronDown,
-  Sparkles, Bell,
+  Sparkles, Bell, Sun, Moon
 } from 'lucide-react'
 import { createClient } from '@/lib/supabase'
 import { cn } from '@/lib/utils-client'
@@ -26,7 +26,30 @@ export function Navbar({ profile, cartCount = 0 }: NavbarProps) {
   const [searchOpen, setSearchOpen]   = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [scrolled, setScrolled]       = useState(false)
+  const [isDark, setIsDark] = useState(false)
   const searchRef = useRef<HTMLInputElement>(null)
+
+  // Theme sync
+  useEffect(() => {
+    const root = window.document.documentElement
+    const isDarkMode = root.classList.contains('dark')
+    setIsDark(isDarkMode)
+
+    const observer = new MutationObserver(() => {
+      setIsDark(root.classList.contains('dark'))
+    })
+    observer.observe(root, { attributes: true, attributeFilter: ['class'] })
+
+    return () => observer.disconnect()
+  }, [])
+
+  function toggleTheme() {
+    const root = window.document.documentElement
+    root.classList.toggle('dark')
+    const newIsDark = root.classList.contains('dark')
+    setIsDark(newIsDark)
+    localStorage.setItem('theme', newIsDark ? 'dark' : 'light')
+  }
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 10)
@@ -84,7 +107,7 @@ export function Navbar({ profile, cartCount = 0 }: NavbarProps) {
                 style={{ fontFamily: 'var(--font-display)' }}
                 className="text-[17px] font-semibold text-[var(--text)] tracking-tight leading-none"
               >
-                JOS<span className="text-[var(--gold)]">.</span>Library
+                Bibliotheca<span className="text-[var(--gold)]">.</span>Library
               </span>
             </Link>
 
@@ -128,6 +151,16 @@ export function Navbar({ profile, cartCount = 0 }: NavbarProps) {
 
             {/* Right actions */}
             <div className="flex items-center gap-2 ml-auto">
+
+              {/* Theme toggle */}
+              <button
+                onClick={toggleTheme}
+                className="btn btn-ghost btn-sm btn-icon p-1 hidden md:inline-flex"
+                title={isDark ? 'Light mode' : 'Dark mode'}
+                aria-label="Toggle theme"
+              >
+                {isDark ? <Sun size={16} className="text-yellow-400" /> : <Moon size={16} />}
+              </button>
 
               {/* AI Search */}
               <button

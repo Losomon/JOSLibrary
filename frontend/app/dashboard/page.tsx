@@ -37,7 +37,7 @@ export default function LibrarianDashboardPage() {
       ])
       const bookList = booksRes.data?.data ?? []
       const borrowList = borrowsRes.data ?? []
-      const overdueList = overdueList ?? []
+      const overdueList = overdueRes.data ?? []
 
       setBooks(bookList)
       setBorrows(borrowList)

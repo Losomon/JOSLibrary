@@ -1,19 +1,23 @@
-# JOS Library Frontend TODO
+# Bibliotheca Frontend TODO
 
+## Current Task: Integrate New BibliothecaAuth Design into Login Page
 
-- Librarian dashboard/dashboard/librarian - [x] app/dashboard/librarian/page.tsx
+✅ **Step 0**: Create TODO.md with plan breakdown  
+✅ **Step 1**: Update frontend/app/(auth)/login/page.tsx with new tabbed design + Supabase auth  
+⭕ **Step 2**: cd frontend && npm run build  
+⭕ **Step 3**: Fix any build errors (linter/CSS/etc.)  
+⭕ **Step 4**: cd frontend && npm run dev  
+⭕ **Step 5**: Test login/register tabs (Supabase auth flow)  
+⭕ **Step 6**: Verify integration with Navbar/middleware redirects  
+✅ **Step 7**: Update TODO.md progress  
 
-## Implementation Steps
-1. ✅ Refine and complete frontend/app/dashboard/admin/page.tsx (fix imports, add deliveries table if exists, test queries)
-2. ✅ Create frontend/app/dashboard/librarian/page.tsx (client component, tabs: Books/Active borrows/Overdue, Add Book modal w/ auto-tag)
-3. ✅ Create frontend/app/register/page.tsx (split-panel, full_name/phone metadata)
-4. ✅ Update this TODO.md with ✅ marks
-5. - [ ] Test all pages: npm run dev, login as admin/librarian/member, check redirects/stats/tables/modals
-6. - [ ] Ensure Navbar active states for /admin /librarian
+## Previous Tasks (Auth Build Fixed)
+✅ Fix Next.js build errors in auth pages  
+✅ Test dev server  
 
-## Notes
-- Use existing UI patterns (stat-card, badge-*, card tables)
-- Queries assume tables: books, profiles, orders (status: paid/pending), borrows (status: active/overdue), deliveries?
-- Add Book modal POST /api/books/tag (backend exists)
-- Register uses supabase.auth.signUp w/ metadata for trigger.
+## Other Tasks
+- Integrate AI chat widget fully
+- Add payment flows (M-Pesa/Paystack)
+- Dashboard enhancements
+- Mobile responsiveness tweaks
 

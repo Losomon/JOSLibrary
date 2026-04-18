@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { SlidersHorizontal, Sparkles, X, RefreshCw } from 'lucide-react'
 import { toast } from 'sonner'
+import { Navbar } from '@/components/ui/Navbar'
 import { BookCard, BookCardSkeleton } from '@/components/books/BookCard'
 import { cn, formatKES } from '@/lib/utils-client'
 import type { Book } from '@/lib/types'
@@ -87,8 +88,10 @@ function BooksContent() {
   const activeFilterCount = Object.values(filters).filter(Boolean).length
 
   return (
-    <div className="min-h-screen">
-      <div className="container py-8">
+    <>
+      <Navbar />
+      <div className="min-h-screen pt-16">
+        <div className="container py-8">
 
         {/* Header */}
         <div className="flex items-end justify-between mb-8">
@@ -278,12 +281,13 @@ function BooksContent() {
         )}
       </div>
     </div>
+  </>
   )
 }
 
 export default function BooksPage() {
   return (
-    <Suspense fallback={<div className="container py-8"><div className="book-grid">{Array.from({length:12}).map((_,i)=><BookCardSkeleton key={i}/>)}</div></div>}>
+    <Suspense fallback={<div className="min-h-screen pt-16"><div className="container py-8"><div className="book-grid">{Array.from({length:12}).map((_,i)=><BookCardSkeleton key={i}/>)}</div></div></div>}>
       <BooksContent />
     </Suspense>
   )

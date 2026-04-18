@@ -4,7 +4,7 @@ import { Navbar } from '@/components/ui/Navbar'
 import { createServerClient } from '@/lib/supabase'
 import { BookCard } from '@/components/books/BookCard'
 import type { Book } from '@/lib/types'
-import { AiChatWidget } from '@/components/ai/AiChatWidget'
+import AiChatWidget from '@/components/ai/AiChatWidget'
 
 async function getFeaturedBooks(): Promise<Book[]> {
   const supabase = await createServerClient()
@@ -41,17 +41,20 @@ export default async function HomePage() {
         <section className="relative min-h-[90vh] flex items-center overflow-hidden">
           <div className="absolute inset-0 pointer-events-none">
             <div
-              className="absolute inset-0 opacity-[0.035]"
+              className="absolute inset-0 bg-[var(--ink)]/2 dark:bg-[var(--cream)]/5"
+            />
+            <div
+              className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05]"
               style={{
                 backgroundImage: `repeating-linear-gradient(
-                  0deg, var(--ink) 0px, var(--ink) 1px, transparent 1px, transparent 40px
+                  0deg, var(--ink-3) 0px, var(--ink-3) 1px, transparent 1px, transparent 40px
                 ), repeating-linear-gradient(
-                  90deg, var(--ink) 0px, var(--ink) 1px, transparent 1px, transparent 40px
+                  90deg, var(--ink-3) 0px, var(--ink-3) 1px, transparent 1px, transparent 40px
                 )`,
               }}
             />
             <div
-              className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl opacity-10"
+              className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl opacity-[0.15]"
               style={{ background: 'var(--gold)' }}
             />
           </div>
@@ -104,7 +107,7 @@ export default async function HomePage() {
                     <Sparkles size={15} className="search-icon text-[var(--gold)]" />
                     <input
                       name="q"
-                      className="input pl-10 bg-[var(--bg)] border-[var(--border)]"
+                      className="input pl-10"
                       placeholder='Try "African sci-fi under 400 KES"…'
                     />
                   </div>
@@ -231,10 +234,10 @@ export default async function HomePage() {
               <div className="w-6 h-6 rounded-[4px] bg-[var(--gold)] flex items-center justify-center">
                 <BookOpen size={12} className="text-[var(--ink)]" />
               </div>
-              <span style={{ fontFamily: 'var(--font-display)' }} className="text-[14px] font-medium">JOS Library</span>
+              <span style={{ fontFamily: 'var(--font-display)' }} className="text-[14px] font-medium">Bibliotheca</span>
             </div>
             <p className="text-[12px] text-[var(--text-3)]">
-              &copy; {new Date().getFullYear()} JOS Library - Nairobi, Kenya
+              &copy; {new Date().getFullYear()} Bibliotheca - Nairobi, Kenya
             </p>
             <div className="flex gap-4">
               {['Books', 'Borrow', 'Orders', 'Login'].map((l) => (
