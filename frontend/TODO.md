@@ -1,19 +1,19 @@
-# TODOs for Bibliotheca Library Frontend
+# Make Login Page Dark like Register
 
-## Current Progress
-- ✅ Fixed TypeScript CSS import error by adding globals.css.d.ts
+**Current Status:** Planning approved. Implementing step-by-step.
 
-## Next Steps
-1. Test all dashboard pages and features
-2. Add missing error boundaries and loading states
-3. Optimize AI chat performance
-4. Implement responsive improvements for mobile
-5. Add PWA support and offline capabilities
-6. Performance monitoring with Sentry
-7. A/B testing for UI variations
-8. Accessibility audit (WCAG 2.2 AA)
+## Steps:
+- [x] Analyze files and create plan
+- [x] 1. Create this TODO.md ✅
+- [x] 2. Add useEffect to force dark mode in login/page.tsx (copy from register)
+- [x] 3. Update container gradient to dark linear-gradient(135deg, var(--ink2) 0%, var(--ink) 50%, var(--ink2) 100%)
+- [x] 4. Set right-panel background: var(--ink2) ✅
+- [x] 5. Update form-card background: var(--ink2) ✅
+- [x] 5. Update text colors to dark vars (ink -> cream, text2 -> cream-3)
+- [ ] 6. Add/update dark-mode body.dark-mode styles in <style jsx> to match register/global.css :dark
+- [ ] 7. Update this TODO.md with progress
+- [ ] 8. Test: Run `cd frontend && npm run dev`, visit /login, verify dark theme matching register
+- [ ] 9. Complete task
 
-## Bugs
-- [ ] Check for any remaining TypeScript errors
-- [ ] Test dark mode toggle across all pages
-
+**Dependent files:** frontend/app/(auth)/login/page.tsx
+**Followup:** No dependencies/installs needed. Refresh dev server to test.

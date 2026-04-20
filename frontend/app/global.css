@@ -1,0 +1,373 @@
+@import "tailwindcss";
+
+@theme {
+  --color-white: var(--cream);
+  --color-ink: var(--ink);
+  --color-ink2: var(--ink2);
+  --color-cream: var(--cream);
+  --color-cream-2: var(--cream-2);
+  --color-cream-3: var(--cream-3);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-rust: var(--rust);
+  
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+@layer components {
+  .bibliotheca-container {
+    @apply min-h-screen flex bg-gradient-to-br from-[#0f0e0c] via-[#1a1814] to-[#0f0e0c];
+  }
+  
+  .left-panel {
+    @apply w-[45%] min-h-screen bg-transparent flex flex-col justify-center p-12 relative overflow-hidden border-r border-gold/15;
+  }
+  
+   .left-panel::before {
+     content: '';
+     @apply absolute inset-0;
+     background: transparent;
+     pointer-events: none;
+     z-index: 2;
+   }
+   
+   .left-panel.no-overlay::before {
+     display: none;
+   }
+  
+  .logo-mark {
+    @apply w-14 h-14 border-2 border-gold rounded-lg flex items-center justify-center font-display text-2xl text-gold mb-4;
+  }
+  
+  .logo-name {
+    @apply font-display text-2xl text-ink -tracking-tight mb-1;
+  }
+  
+  .logo-tagline {
+    @apply text-xs tracking-widest uppercase text-ink/40 mt-1;
+  }
+  
+  .left-quote {
+    @apply max-w-[420px] relative mb-16;
+  }
+  
+  .quote-mark {
+    @apply font-display text-4xl text-gold/30 leading-[0.8] block -mb-4;
+  }
+  
+  .quote-text {
+    @apply text-xl leading-[1.6] text-ink/70 italic;
+  }
+  
+  .quote-attr {
+    @apply text-sm text-ink/40 mt-5;
+  }
+  
+  .left-stats {
+    @apply flex gap-12 relative;
+  }
+  
+  .stat-num {
+    @apply font-display text-gold text-lg;
+  }
+  
+  .stat-label {
+    @apply text-xs tracking-[0.15em] uppercase text-ink/40;
+  }
+  
+   .right-panel {
+     @apply w-[55%] min-h-screen flex items-center justify-center p-8 bg-ink;
+   }
+   
+   .form-card {
+      @apply w-full max-w-md bg-ink border border-gold/15 rounded-xl p-6 shadow-gold/10;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+   }
+  
+  .tab-strip {
+    @apply flex gap-2 mb-7 p-1 bg-gold/10 rounded-md;
+  }
+  
+  .tab-btn {
+    @apply flex-1 px-4 py-2 rounded text-xs font-medium no-underline text-cream-3 text-center hover:text-cream transition-all;
+  }
+  
+  .tab-btn.active {
+    @apply bg-gold text-ink;
+  }
+  
+  .membership-badge {
+    @apply inline-block px-3 py-1 bg-gold/10 border border-gold/25 rounded-full text-xs tracking-wider uppercase text-gold mb-4;
+  }
+  
+.form-heading {
+    @apply font-display text-2xl text-cream mb-2 -tracking-tight;
+  }
+  
+   .form-subhead {
+     @apply text-sm text-cream-3 leading-6 mb-7;
+   }
+  
+  .row-2 {
+    @apply grid grid-cols-2 gap-4;
+  }
+  
+  .field-group {
+    @apply mb-5;
+  }
+  
+ .field-label {
+   @apply block text-xs tracking-[0.08em] uppercase text-cream-3 mb-2;
+ }
+  
+ .field-icon {
+   @apply absolute left-3.5 top-1/2 -translate-y-1/2 text-cream-3 text-sm pointer-events-none;
+}
+  
+  .pass-toggle {
+    @apply absolute right-2.5 bg-transparent border-none text-xs text-ink/40 cursor-pointer p-1 hover:text-gold;
+  }
+  
+  .terms-check {
+    @apply flex items-start gap-3 mb-6;
+  }
+  
+  .terms-check input[type='checkbox'] {
+    @apply w-[1.1rem] h-[1.1rem] accent-gold mt-0.5;
+  }
+  
+  .terms-text {
+    @apply text-xs text-ink/60 leading-6 [&_a]:text-gold [&_a]:no-underline hover:[&_a]:underline;
+  }
+  
+  .submit-btn {
+    @apply w-full py-3.5 bg-gold text-white border-none rounded-md text-base font-semibold cursor-pointer transition-all hover:bg-gold-light disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+  
+  .switch-text {
+    @apply text-center text-base text-ink mt-6 font-medium;
+  }
+   
+   .switch-link {
+    @apply text-gold font-bold no-underline hover:underline decoration-2 underline-offset-2;
+   }
+  
+  .field-error {
+    @apply block text-xs text-rust mt-1;
+  }
+}
+
+:root {
+  /* Brand Colors */
+  --gold: #b8860b;
+  --gold-light: #c9a227;
+  --rust: #8b4513;
+  --ink: #0f0e0c;
+  --ink2: #1a1814;
+  --cream: #f5f0e8;
+  --cream-2: #ebe6de;
+  --cream-3: #ddd8d0;
+
+  /* UI Colors */
+  --bg: #fcfbf9;
+  --surface: #f5f2eb;
+  --border: #e5e0d8;
+  --text: #1a1814;
+  --text2: #4a4540;
+  --text3: #807a70;
+
+  /* Status Colors */
+  --green: #2e7d32;
+  --blue: #1565c0;
+  --amber: #f9a825;
+  --red: #c62828;
+
+  /* Fonts */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+.dark {
+  --bg: #0f0e0c;
+  --surface: #1a1814;
+  --border: #2a2824;
+  --text: #f5f0e8;
+  --text2: #a8a090;
+  --text3: #605850;
+  --ink: #0f0e0c;
+  --ink2: #1a1814;
+  --gold: #d4a839;
+  --cream: #f5f0e8;
+  --cream-2: #ebe6de;
+  --cream-3: #ddd8d0;
+}
+
+html.dark body {
+  background-color: #0f0e0c;
+  color: #f5f0e8;
+}
+
+.dark .field-wrap input,
+.dark .field-wrap select {
+  background-color: #1a1814;
+  border-color: rgba(212, 168, 57, 0.4);
+  color: #f5f0e8;
+}
+
+.dark .field-wrap input::placeholder {
+  color: #605850;
+}
+
+.dark .field-wrap input:focus,
+.dark .field-wrap select:focus {
+  border-color: #d4a839;
+  box-shadow: 0 0 0 3px rgba(212, 168, 57, 0.2);
+}
+
+.dark .field-wrap select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(245,240,232,0.4)' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+}
+
+.dark .right-panel {
+  background-color: #0f0e0c;
+}
+
+.dark .form-card {
+  background-color: #0f0e0c;
+  border-color: rgba(212, 168, 57, 0.15);
+}
+
+.dark .tab-strip {
+  background: rgba(212, 168, 57, 0.1);
+}
+
+.dark .form-heading {
+  color: #f5f0e8;
+}
+
+.dark .form-subhead {
+  color: #a8a090;
+}
+
+.dark .membership-badge {
+  background: rgba(212, 168, 57, 0.1);
+  border-color: rgba(212, 168, 57, 0.25);
+  color: #d4a839;
+}
+
+.dark .field-label {
+  color: #a8a090;
+}
+
+.dark .field-icon {
+  color: #a8a090;
+}
+
+.dark .submit-btn {
+  background: #d4a839;
+  color: #0f0e0c;
+}
+
+.dark .submit-btn:hover:not(:disabled) {
+  background: #c9a227;
+}
+
+.dark .terms-check input[type='checkbox'] {
+  accent-color: #d4a839;
+}
+
+.dark .terms-text {
+  color: #a8a090;
+}
+
+.dark .terms-text a {
+  color: #d4a839;
+}
+
+.dark .switch-text {
+  color: #a8a090;
+}
+
+.dark .switch-link {
+  color: #d4a839;
+}
+
+.dark .divider {
+  color: #a8a090;
+}
+
+.dark .divider::before,
+.dark .divider::after {
+  background: rgba(212, 168, 57, 0.3);
+}
+
+.dark .social-btn {
+  background: #1a1814;
+  border-color: rgba(212, 168, 57, 0.4);
+  color: #f5f0e8;
+}
+
+.dark .social-btn:hover:not(:disabled) {
+  background: #0f0e0c;
+  border-color: #d4a839;
+}
+
+.dark .logo-mark {
+  border-color: #d4a839;
+  color: #d4a839;
+}
+
+.dark .logo-name {
+  color: #f5f0e8;
+}
+
+.dark .logo-tagline {
+  color: #a8a090;
+}
+
+.dark .quote-mark {
+  color: #d4a839;
+}
+
+.dark .quote-text {
+  color: #a8a090;
+}
+
+.dark .quote-attr {
+  color: #605850;
+}
+
+.dark .stat-num {
+  color: #d4a839;
+}
+
+.dark .stat-label {
+  color: #605850;
+}
+
+body.dark-mode .right-panel,
+body.dark-mode .form-card {
+  background-color: var(--ink);
+}
+body.dark-mode .form-card {
+  border-color: rgba(212, 168, 57, 0.15);
+}
+body.dark-mode .left-panel {
+  background: transparent;
+}
+
+ .field-wrap input,
+ .field-wrap select {
+   @apply w-full px-4 py-3 pl-10 bg-white border border-gold/40 rounded-md text-ink text-base placeholder:text-ink/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/10 shadow-sm transition-all;
+ }
+
+.field-wrap input.error,
+.field-wrap select.error {
+  @apply border-rust ring-1 ring-rust/10;
+}
+
+.field-wrap select {
+  @apply appearance-none bg-no-repeat bg-right bg-[length:12px_12px] bg-[position:calc(100%-1rem)_center];
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgb(26 24 20 / 0.4)' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+}
